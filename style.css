@@ -1,0 +1,80 @@
+:root {
+    --primary: #00f2ff;
+    --secondary: #7000ff;
+    --bg: #030712;
+    --card: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+    --text-main: #f3f4f6;
+    --text-dim: #9ca3af;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+/* Animated Background Gradient */
+.gradient-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% -20%, #1e1b4b, transparent),
+                radial-gradient(circle at 0% 100%, #0f172a, transparent);
+    z-index: -1;
+}
+
+.container { max-width: 1200px; margin: auto; padding: 0 2rem; }
+
+/* Navbar Enhancement */
+.navbar {
+    height: 80px; display: flex; align-items: center;
+    backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 1000;
+}
+.navbar .container { display: flex; justify-content: space-between; width: 100%; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+.logo span { color: var(--primary); }
+
+.nav-links { display: flex; list-style: none; align-items: center; }
+.nav-links li a { color: var(--text-dim); text-decoration: none; margin-left: 2.5rem; font-weight: 500; transition: 0.3s; }
+.nav-links li a:hover { color: var(--primary); }
+.nav-resume { color: var(--primary) !important; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; }
+
+/* Hero Section Enhancement */
+.hero { height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+.reveal-tag { background: var(--card); border: 1px solid var(--border); padding: 6px 18px; border-radius: 100px; font-size: 0.8rem; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
+.hero h1 { font-size: clamp(3rem, 8vw, 5rem); font-weight: 800; margin: 1.5rem 0; line-height: 1.1; }
+.hero h1 span { background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { max-width: 600px; margin: 0 auto 2.5rem; font-size: 1.25rem; color: var(--text-dim); }
+
+/* Modern Buttons */
+.hero-btns { display: flex; gap: 1.5rem; justify-content: center; }
+.btn { padding: 1rem 2.5rem; border-radius: 12px; font-weight: 700; text-decoration: none; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; border: none; }
+.btn-primary { background: var(--primary); color: #000; box-shadow: 0 10px 20px -10px var(--primary); }
+.btn-primary:hover { transform: translateY(-5px); box-shadow: 0 20px 30px -10px var(--primary); }
+.btn-outline { background: transparent; color: #fff; border: 1px solid var(--border); }
+.btn-outline:hover { background: var(--card); border-color: var(--primary); }
+
+/* Glass Cards (Skills) */
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+.skill-card { 
+    background: var(--card); border: 1px solid var(--border); padding: 3rem 2rem; 
+    border-radius: 24px; text-align: center; transition: 0.4s; position: relative; overflow: hidden;
+}
+.skill-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(0, 242, 255, 0.05), transparent);
+    transform: translateX(-100%); transition: 0.6s;
+}
+.skill-card:hover::before { transform: translateX(100%); }
+.skill-card:hover { border-color: var(--primary); transform: translateY(-10px) scale(1.02); background: rgba(255,255,255,0.05); }
+.skill-card i { font-size: 3rem; margin-bottom: 1.5rem; display: block; color: var(--primary); }
+
+/* Project Cards */
+.project-card { 
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+    border: 1px solid var(--border); border-radius: 30px; padding: 3rem; transition: 0.4s;
+}
+.project-card:hover { border-color: var(--secondary); transform: scale(1.01); }
+.client-name { color: var(--primary); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
+.tags span { 
+    background: rgba(112, 0, 255, 0.1); color: #c084fc; padding: 5px 12px; 
+    border-radius: 8px; font-size: 0.8rem; margin-right: 10px; border: 1px solid rgba(112, 0, 255, 0.2);
+}
